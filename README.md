@@ -31,21 +31,21 @@ The goals / steps of this project are the following:
 [image6]: ./images/2.jpg "Traffic Sign 3"
 [image7]: ./images/3.jpg "Traffic Sign 4"
 [image8]: ./images/4.jpg "Traffic Sign 5"
-[weights]:./images/features.png "activations"
+[weights]:./images/Features.PNG "activations"
 
 ## Rubric Points
-###Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.
+### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.
 
 ---
-###Writeup / README
+### Writeup / README
 
-####1. Provide a Writeup / README that includes all the rubric points and how you addressed each one. You can submit your writeup as markdown or pdf. You can use this template as a guide for writing the report. The submission includes the project code.
+#### 1. Provide a Writeup / README that includes all the rubric points and how you addressed each one. You can submit your writeup as markdown or pdf. You can use this template as a guide for writing the report. The submission includes the project code.
 
 You're reading it! and here is a link to my [project code](https://github.com/arkhalid/CarND-Traffic-Sign-Classifier-Project/blob/master/Traffic_Sign_Classifier.ipynb)
 
-###Data Set Summary & Exploration
+### Data Set Summary & Exploration
 
-####1. Basic Summary of Dataset
+#### 1. Basic Summary of Dataset
 
 The code for this step is contained in the second and third code cell of the IPython notebook. I initially converted the pickle files to mat so that I could easily visualize the images using MATLAB. I noticed that the images have a lot of variation in the brightness.
 I used the numpy library to calculate summary statistics of the traffic
@@ -57,7 +57,7 @@ signs data set:
 * Image data shape = (32, 32)
 * Number of classes = 43
 
-####2. Exploratory Visualization of the Dataset
+#### 2. Exploratory Visualization of the Dataset
 
 The code for this step is contained in the fourth code cell of the IPython notebook.
 
@@ -67,9 +67,9 @@ Here is an exploratory visualization of the data set. We show a label distributi
 
 Here we visualise one image from each class.
 ![alt text][visualisation]
-###Design and Test a Model Architecture
+### Design and Test a Model Architecture
 
-####1. Describe how, and identify where in your code, you preprocessed the image data. What tecniques were chosen and why did you choose these techniques? Consider including images showing the output of each preprocessing technique. Pre-processing refers to techniques such as converting to grayscale, normalization, etc.
+#### 1. Describe how, and identify where in your code, you preprocessed the image data. What tecniques were chosen and why did you choose these techniques? Consider including images showing the output of each preprocessing technique. Pre-processing refers to techniques such as converting to grayscale, normalization, etc.
 
 The code for this step is contained in the cells under step 2. I experimented with multiple preprocessing techniques and used validation set accuracy to choose what to go for.I tried 4 types of preprocessing.
 * Normalised RGB
@@ -86,7 +86,7 @@ The rest of the transformations are straightforward. We show an example of hist 
 ![alt text][histEq]
 ![alt text][histEq2]
 
-####2. Describe how, and identify where in your code, you set up training, validation and testing data. How much data was in each set? Explain what techniques were used to split the data into these sets. (OPTIONAL: As described in the "Stand Out Suggestions" part of the rubric, if you generated additional data for training, describe why you decided to generate additional data, how you generated the data, identify where in your code, and provide example images of the additional data)
+#### 2. Describe how, and identify where in your code, you set up training, validation and testing data. How much data was in each set? Explain what techniques were used to split the data into these sets. (OPTIONAL: As described in the "Stand Out Suggestions" part of the rubric, if you generated additional data for training, describe why you decided to generate additional data, how you generated the data, identify where in your code, and provide example images of the additional data)
 
 I used the splits that were part of the German Traffic Signs Dataset. If the validation set was not already there, I could have used the function from Scikitlearn to achieve the split.
 
@@ -100,7 +100,7 @@ It was found that just using this training data the system was overfitting. To a
 Please see sample image with random brightness and random rotation below.
 
 
-####3. Describe, and identify where in your code, what your final model architecture looks like including model type, layers, layer sizes, connectivity, etc.) Consider including a diagram and/or table describing the final model.
+#### 3. Describe, and identify where in your code, what your final model architecture looks like including model type, layers, layer sizes, connectivity, etc.) Consider including a diagram and/or table describing the final model.
 
 I started with the Lenet and adapted it to use color images as input. Lenet was overfitting on the data therefore I added some dropout layers to prevent this.
 
@@ -126,7 +126,7 @@ My final model consisted of the following layers:
 |RELU					|												|
 |Softmax				|												|
 
-####4. Describe how, and identify where in your code, you trained your model. The discussion can include the type of optimizer, the batch size, number of epochs and any hyperparameters such as learning rate.
+#### 4. Describe how, and identify where in your code, you trained your model. The discussion can include the type of optimizer, the batch size, number of epochs and any hyperparameters such as learning rate.
 
 The code for training the model is located under the Train heading in the Ipython notebook.
 
@@ -137,7 +137,7 @@ Training graph for best model
 Training graph for current model
 ![alt text][training1]
 
-####5. Describe the approach taken for finding a solution. Include in the discussion the results on the training, validation and test sets and where in the code these were calculated. Your approach may have been an iterative process, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think the architecture is suitable for the current problem.
+#### 5. Describe the approach taken for finding a solution. Include in the discussion the results on the training, validation and test sets and where in the code these were calculated. Your approach may have been an iterative process, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think the architecture is suitable for the current problem.
 
 The code for calculating the accuracy of the model is located in the cell titled  accuracy in the Ipython notebook.
 
@@ -163,9 +163,9 @@ To come up with the solution I took an iterative approach:
 * I also added xavier initialisation for weights but did not notice significant performance gain.
 * The problem is well suited to a CNN as it exibits characteristics of translation invariance as it doesnot matter where in the image the sign is, rather we are only concerned with identifying it.
 
-###Test a Model on New Images
+### Test a Model on New Images
 
-####1. Choose five German traffic signs found on the web and provide them in the report. For each image, discuss what quality or qualities might be difficult to classify.
+#### 1. Choose five German traffic signs found on the web and provide them in the report. For each image, discuss what quality or qualities might be difficult to classify.
 
 Here are five German traffic signs that I found on the web:
 
@@ -176,7 +176,7 @@ The second image is taken with a perspective.
 The third image should be unique and strightforward to identify.
 The fourth and fifth image are of warning signs of which many are present.These should have a higher change of confusion.
 
-####2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. Identify where in your code predictions were made. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set (OPTIONAL: Discuss the results in more detail as described in the "Stand Out Suggestions" part of the rubric).
+#### 2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. Identify where in your code predictions were made. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set (OPTIONAL: Discuss the results in more detail as described in the "Stand Out Suggestions" part of the rubric).
 
 The code for making predictions is in the cell titled " Predict the Sign Type for Each Image"
 
@@ -200,7 +200,7 @@ Class: 2 Recall: 0.977333333333 Precision: 0.97603195739
 Class: 13 Recall: 0.990277777778 Precision: 0.995810055866
 Class: 14 Recall: 1.0 Precision: 0.957446808511
 
-####3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction and identify where in your code softmax probabilities were outputted. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. (OPTIONAL: as described in the "Stand Out Suggestions" part of the rubric, visualizations can also be provided such as bar charts)
+#### 3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction and identify where in your code softmax probabilities were outputted. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. (OPTIONAL: as described in the "Stand Out Suggestions" part of the rubric, visualizations can also be provided such as bar charts)
 
 The code for making predictions on my final model is located in the cell titled "Predict the Sign Type for Each Image" of the Ipython notebook.
 
